@@ -9,12 +9,12 @@ export class CharacterService {
   constructor(private http: HttpClient) {}
 
   searchCharacters(query = '', page = 1) {
-    this.http.get<Character[]>(
+    return this.http.get<Character[]>(
       `${environment.apiCharacter}/?name=${query}&page=${page}`
     );
   }
 
   getDetails(id: number) {
-    this.http.get<Character>(`${environment.apiCharacter}/${id}`);
+    return this.http.get<Character>(`${environment.apiCharacter}/${id}`);
   }
 }
