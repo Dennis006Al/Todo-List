@@ -3,6 +3,7 @@
         "codelyzer",
         "devkit",
         "jasminewd",
-        "morty"
+        "morty",
+        "popperjs"
     ]
 }

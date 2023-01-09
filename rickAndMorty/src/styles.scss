@@ -3,9 +3,10 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
   transition: all 0.2 ease-in-out;
   box-sizing: border-box;
-  margin: 10px 0;
-  max-width: 519px;
-  background-color: #171a4a;
+  margin: 10px auto 10px auto;
+  max-width: 400px;
+  width: 350px;
+  background-color: white;
   &:hover {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.24);
     cursor: pointer;
@@ -23,5 +24,17 @@
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.no-hidden {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  visibility: visible;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100%;
+  scroll-behavior: smooth;
+}
