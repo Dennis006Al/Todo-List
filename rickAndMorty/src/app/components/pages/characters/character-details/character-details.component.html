@@ -1,9 +1,26 @@
-<div
-  class="row justify-content-center mt-3"
-  *ngIf="character$ | async as character"
->
-  <div class="col-xs-12 col-sm-6 col-md-6 justify-content-center">
-    <app-character [character]="character"></app-character>
+<div class="card-details-container" *ngIf="character$ | async as character">
+  <div class="card-container">
+    <div class="image-card">
+      <a [routerLink]="['/character-details', character.id]">
+        <img [src]="character.image" [alt]="character.name" class="img-card" />
+      </a>
+    </div>
+    <div class="card-container-text">
+      <div class="header-info">
+        <a [routerLink]="['/character-details', character.id]">
+          <h2 class="text-title">{{ character.name | slice : 0 : 15 }}</h2>
+        </a>
+        <h4 class="text-info">Gender: {{ character.gender }}</h4>
+        <h4 class="text-info">Created: {{ character.created | date }}</h4>
+        <h4 class="text-info">Status: {{ character.status }}</h4>
+        <h4 class="text-info">Location: {{ character.origin.name | json }}</h4>
+        <h4 class="text-info">Species: {{ character.species }}</h4>
+      </div>
+    </div>
   </div>
 </div>
-<button (click)="onGoBack()" class="btn btn-dark btn-lg mt-3">Back</button>
+<div class="btn-position">
+  <button (click)="onGoBack()" class="btn-goBack">
+    <mat-icon>arrow_back</mat-icon>Back
+  </button>
+</div>

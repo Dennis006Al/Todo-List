@@ -19,9 +19,9 @@ import { Character } from '@app/shared/interface/character.interface';
           <a [routerLink]="['/character-details', character.id]">
             <h2>{{ character.name | slice : 0 : 15 }}</h2>
           </a>
-          <h4 class="text-muted">{{ character.gender }}</h4>
-          <small class="text-muted">{{ character.created | date }}</small>
-          <h4 class="text-muted">{{ character.status }}</h4>
+          <h4 class="text-info">Gender: {{ character.gender }}</h4>
+          <h4 class="text-info">Created: {{ character.created | date }}</h4>
+          <h4 class="text-info">Status: {{ character.status }}</h4>
         </div>
       </div>
     </div>

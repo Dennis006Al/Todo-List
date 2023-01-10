@@ -1,0 +1,12 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.btn-up {
+  border-radius: 50%;
+  width: 43px;
+  height: 43px;
+  background-color: rgb(255, 152, 0);
+}

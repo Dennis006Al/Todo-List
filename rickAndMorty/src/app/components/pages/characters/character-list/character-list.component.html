@@ -1,18 +1,9 @@
-<div class="row" infinite-scroll (scrolled)="onScrollDown()">
-  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let character of characters">
+<div class="card-container" infinite-scroll (scrolled)="onScrollDown()">
+  <div class="" *ngFor="let character of characters">
     <app-character [character]="character"></app-character>
   </div>
-  <div
-    *ngIf="characters.length <= 0"
-    class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound"
-  >
+  <div class="" *ngIf="characters.length <= 0">
     <p>No Results :(</p>
   </div>
 </div>
-<button
-  [ngClass]="'no-hidden'"
-  class="btn btn-dark"
-  (click)="onScrollTop()"
->
-  Go UP
-</button>
+<button [ngClass]="'no-hidden'" class="btn-up" (click)="onScrollTop()"><mat-icon>arrow_upward</mat-icon></button>
