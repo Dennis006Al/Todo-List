@@ -17,11 +17,11 @@ import { Character } from '@app/shared/interface/character.interface';
       <div class="card-inner">
         <div class="header">
           <a [routerLink]="['/character-details', character.id]">
-            <h2>{{ character.name | slice : 0 : 15 }}</h2>
+            <h2 class="text-name">{{ character.name | slice : 0 : 15 }}</h2>
           </a>
-          <h4 class="text-info">Gender: {{ character.gender }}</h4>
-          <h4 class="text-info">Created: {{ character.created | date }}</h4>
-          <h4 class="text-info">Status: {{ character.status }}</h4>
+          <h4 class="text-info">{{ character.gender }}</h4>
+          <h4 class="text-info">{{ character.status }}</h4>
+          <h4 class="text-info">{{ character.created | date }}</h4>
         </div>
       </div>
     </div>
