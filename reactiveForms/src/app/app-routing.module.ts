@@ -1,16 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ChooseFormComponent } from './choose-form/choose-form.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: '', component: ChooseFormComponent },
-  {
-    path: 'reactive-form',
-    loadChildren: () =>
-      import('./choose-form/choose-form.module').then(
-        (m) => m.ChooseFormModule
-      ),
-  },
+  { path: '', component: AppComponent },
 ];
 
 @NgModule({
