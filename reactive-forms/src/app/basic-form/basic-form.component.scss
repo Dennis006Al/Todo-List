@@ -1,0 +1,64 @@
+::ng-deep {
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.basic-form {
+  margin-top: 50px;
+}
+
+.btn-basic-form {
+  height: 50px;
+  width: 900px;
+  border-radius: 10px;
+  background-color: rgb(255, 152, 0);
+  font-size: 22px;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  letter-spacing: 0;
+  &:hover {
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+}
+
+.required-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background-color: red;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.form {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.return-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  width: 116px;
+  font-weight: 700;
+  background-color: rgb(255, 152, 0);
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+}
