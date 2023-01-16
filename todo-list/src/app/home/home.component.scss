@@ -1,0 +1,50 @@
+::ng-deep {
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    background-color: #cca152;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,
+  .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon {
+    color: white;
+  }
+}
+
+.todo-home {
+  font-family: "Pixel Bit", sans-serif;
+  letter-spacing: 8px;
+  cursor: pointer;
+}
+
+.search-container {
+  margin: 40px 0 0 0;
+  display: flex;
+  gap: 20px;
+}
+
+.todo-list {
+  margin: 24px 100px 0 100px;
+  .list-text {
+    font-family: "Pixel Bit", sans-serif;
+    font-size: 21px;
+    letter-spacing: 3px;
+    color: white;
+    width: 100%;
+  }
+}
+
+.todo-items {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 16px;
+  justify-content: space-between;
+}

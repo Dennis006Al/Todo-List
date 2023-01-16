@@ -1,0 +1,33 @@
+<mat-toolbar>
+  <h1 class="todo-home" routerLink="/">TODO LIST</h1>
+</mat-toolbar>
+<div class="todo-list">
+  <app-new-todo></app-new-todo>
+
+  <div class="search-container">
+    <mat-form-field class="" appearance="fill">
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-label>Search Todo...</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Filter By</mat-label>
+      <mat-select name="option">
+        <mat-option *ngFor="let option of options" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="todo-list">
+  <ul>
+    <div class="todo-items" *ngFor="let todo of todos">
+      <mat-checkbox></mat-checkbox>
+      <li class="list-text">{{ todo }}</li>
+      <button mat-button><mat-icon>close</mat-icon></button>
+    </div>
+  </ul>
+</div>
