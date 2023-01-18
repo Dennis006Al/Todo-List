@@ -4,10 +4,27 @@
       <label for="newItem" class="todo-text">New Task </label>
     </div>
     <div class="input-container">
-      <input type="text" id="newItem" class="input-style" #newItem/>
+      <input type="text" id="newItem" class="input-style" #newItemTxt />
     </div>
     <div>
-      <button mat-button type="button" class="add-button">ADD</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Assign To</mat-label>
+        <mat-select [formControl]="newItemControl" name="person">
+          <mat-option *ngFor="let person of people" [value]="person.value">
+            {{ person.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="btn">
+      <button
+        (click)="addNewTask(newItemTxt.value, newItemControl.value)"
+        mat-button
+        type="button"
+        class="add-button"
+      >
+        ADD
+      </button>
     </div>
   </div>
 </form>

@@ -12,6 +12,10 @@
   .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon {
     color: white;
   }
+
+  .mat-icon {
+    color: white;
+  }
 }
 
 .todo-home {
@@ -29,22 +33,47 @@
 .todo-list {
   margin: 24px 100px 0 100px;
   .list-text {
-    font-family: "Pixel Bit", sans-serif;
     font-size: 21px;
     letter-spacing: 3px;
     color: white;
     width: 100%;
+    padding: 10px 0px 10px 0;
   }
 }
 
 .todo-items {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
-  height: 40px;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.1);
   padding-left: 16px;
-  padding-right: 16px;
   margin-bottom: 16px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
   justify-content: space-between;
+  color: #cca152;
+  text-transform: uppercase;
+}
+
+.button-line {
+  height: 1px;
+  margin: 32px 0;
+  background-color: #cca152;
+}
+
+.completed-task{
+  color: #cca152;
+  font-weight: 800;
+}
+
+.complete-task{
+  text-decoration: line-through;
+  font-weight: bold;
 }

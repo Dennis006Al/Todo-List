@@ -7,6 +7,7 @@
 
 .input-container {
   width: 100%;
+  padding-bottom: 1.34375em;
   .input-style {
     height: 48px;
     width: 98%;
@@ -16,20 +17,24 @@
   }
 }
 
-.add-button {
-  height: 48px;
-  width: 72px;
-  border-radius: 8px;
-  background-color: #cca152;
-  color: white;
-  cursor: pointer;
-  font-family: "Pixel Bit", sans-serif;
-  font-size: 24px;
-  letter-spacing: 3px;
+.btn {
+  padding-bottom: 1.34375em;
+  .add-button {
+    height: 48px;
+    width: 72px;
+    border-radius: 8px;
+    background-color: #cca152;
+    color: white;
+    cursor: pointer;
+    font-family: "Pixel Bit", sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
 }
 
 .todo-txt {
   width: 136px;
+  padding-bottom: 1.34375em;
   .todo-text {
     font-family: "Pixel Bit", sans-serif;
     font-size: 24px;

@@ -2,32 +2,80 @@
   <h1 class="todo-home" routerLink="/">TODO LIST</h1>
 </mat-toolbar>
 <div class="todo-list">
-  <app-new-todo></app-new-todo>
+  <app-new-todo
+    (newItemEvent)="addNewTodo($event)"
+    (deleteEvent)="deleteTask($event)"
+  ></app-new-todo>
 
   <div class="search-container">
     <mat-form-field class="" appearance="fill">
       <mat-icon matSuffix>search</mat-icon>
       <mat-label>Search Todo...</mat-label>
-      <input matInput />
+      <input
+        matInput
+        [(ngModel)]="searchText"
+        (ngModelChange)="filterTodos(searchText)"
+      />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Filter By</mat-label>
-      <mat-select name="option">
-        <mat-option *ngFor="let option of options" [value]="option.value">
-          {{ option.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <button mat-button [matMenuTriggerFor]="mainMenu">Filter</button>
+    <mat-menu #mainMenu="matMenu">
+      <button mat-menu-item (click)="filterBy('active')">Active</button>
+      <button mat-menu-item (click)="filterBy('complete')">Complete</button>
+      <button mat-menu-item [matMenuTriggerFor]="nameSubmenu">Name</button>
+    </mat-menu>
+
+    <mat-menu #nameSubmenu="matMenu">
+      <button mat-menu-item (click)="filterByName('Dennis')">Dennis</button>
+      <button mat-menu-item (click)="filterByName('Rodrigo')">Rodrigo</button>
+      <button mat-menu-item (click)="filterByName('Enrique')">Enrique</button>
+    </mat-menu>
   </div>
 </div>
 
 <div class="todo-list">
-  <ul>
-    <div class="todo-items" *ngFor="let todo of todos">
-      <mat-checkbox></mat-checkbox>
-      <li class="list-text">{{ todo }}</li>
-      <button mat-button><mat-icon>close</mat-icon></button>
+  <div class="status">
+    <h2 *ngFor="let status of status">{{ status }}</h2>
+  </div>
+
+  <div *ngFor="let todo of filteredTodos; let i = index">
+    <div class="todo-items" *ngIf="todo.status !== 'Complete'">
+      <mat-checkbox
+        [(ngModel)]="todo.completed"
+        (click)="changeStatus(todo)"
+      ></mat-checkbox>
+      <li class="list-text">{{ todo.task }}</li>
+      <li class="list-text">{{ todo.assigned }}</li>
+      <li class="list-text">{{ todo.status }}</li>
+      <li class="list-text">{{ todo.date }}</li>
+      <button mat-button (click)="deleteTask(i)">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
-  </ul>
+  </div>
+
+  <div class="button-line"></div>
+  <div>
+    <h1 class="completed-task">Completed Tasks</h1>
+    <div *ngFor="let todo of filteredTodos; let i = index">
+      <div class="todo-items" *ngIf="todo.status === 'Complete'">
+        <mat-checkbox
+          [(ngModel)]="todo.completed"
+          (click)="changeStatus(todo)"
+        ></mat-checkbox>
+        <li
+          class="list-text"
+          [ngClass]="{ 'complete-task': todo.status === 'Complete' }"
+        >
+          {{ todo.task }}
+        </li>
+        <li class="list-text">{{ todo.assigned }}</li>
+        <li class="list-text">{{ todo.status }}</li>
+        <li class="list-text">{{ todo.date }}</li>
+        <button mat-button (click)="deleteTask(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

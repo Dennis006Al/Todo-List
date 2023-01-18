@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +30,9 @@ const routes: Routes = [
     MatSelectModule,
     MatButtonModule,
     MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatMenuModule,
   ],
 })
 export class HomeModule {}
