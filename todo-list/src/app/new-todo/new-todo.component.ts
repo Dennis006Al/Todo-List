@@ -2,6 +2,7 @@ import { Component, ElementRef, Output, ViewChild } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Task } from '../services/service.model';
 import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 interface Assigned {
   value: string;
   viewValue: string;
@@ -28,6 +29,7 @@ export class NewTodoComponent {
     { value: 'Enrique', viewValue: 'Enrique' },
   ];
 
+  constructor(private snackbar: MatSnackBar) {}
 
   addNewTask(itemTask: string, itemAsig: string): void {
     let date = new Date();
@@ -35,6 +37,14 @@ export class NewTodoComponent {
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let taskDate = day + '/' + month + '/' + year;
+
+    if (itemTask.trim() === '') {
+      this.snackbar.open('Cannot create an empty task', '', {
+        duration: 3000,
+        panelClass: ['error-snackbar'],
+      });
+      return;
+    }
 
     const task = {
       task: itemTask.toLocaleLowerCase(),

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Task } from '../services/service.model';
 import * as _ from 'lodash';
+
 interface Filter {
   value: string;
   viewValue: string;
@@ -69,14 +70,16 @@ export class HomeComponent implements OnInit {
   }
 
   filterBy(status: string) {
-    this.filteredTodos = [...this.todos].filter((todo) => todo.status === status);
-    if(status === 'Active' && this.filteredTodos.length === 0){
+    this.filteredTodos = [...this.todos].filter(
+      (todo) => todo.status === status
+    );
+    if (status === 'Active' && this.filteredTodos.length === 0) {
       this.showNoActiveTasksMessage = true;
       this.showNoCompleteMessage = false;
-    }else if(status === 'Complete' && this.filteredTodos.length === 0){
+    } else if (status === 'Complete' && this.filteredTodos.length === 0) {
       this.showNoCompleteMessage = true;
       this.showNoActiveTasksMessage = false;
-    }else{
+    } else {
       this.showNoCompleteMessage = false;
       this.showNoActiveTasksMessage = false;
     }

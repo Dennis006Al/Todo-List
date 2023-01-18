@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatSnackBarModule
   ],
 })
 export class HomeModule {}
