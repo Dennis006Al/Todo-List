@@ -38,7 +38,7 @@ export class NewTodoComponent {
     let year = date.getFullYear();
     let taskDate = day + '/' + month + '/' + year;
 
-    if (itemTask.trim() === '') {
+    if (itemTask.trim() === '' || !this.newItemControl.value) {
       this.snackbar.open('Cannot create an empty task', '', {
         duration: 3000,
         panelClass: ['error-snackbar'],
