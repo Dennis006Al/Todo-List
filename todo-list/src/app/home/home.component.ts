@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Task } from '../services/service.model';
 import * as _ from 'lodash';
 interface Filter {
@@ -14,6 +14,8 @@ interface Filter {
 export class HomeComponent implements OnInit {
   selectedValue: string;
   searchText: string;
+  showNoCompleteMessage = false;
+  showNoActiveTasksMessage = false;
   status = ['Task', 'Assigned To', 'Status', 'Date', 'Delete'];
   todos = [];
   filteredTodos: Task[] = [];
@@ -24,7 +26,7 @@ export class HomeComponent implements OnInit {
     { value: 'active-2', viewValue: 'Active' },
   ];
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
     this.todos = JSON.parse(localStorage.getItem('todos')) || [];
     this.filteredTodos = this.todos;
   }
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
 
   deleteTask(i: number) {
     this.todos.splice(i, 1);
+    this.cdr.detectChanges();
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
@@ -66,9 +69,17 @@ export class HomeComponent implements OnInit {
   }
 
   filterBy(status: string) {
-    this.filteredTodos = [...this.todos].filter(
-      (todo) => todo.status === status
-    );
+    this.filteredTodos = [...this.todos].filter((todo) => todo.status === status);
+    if(status === 'Active' && this.filteredTodos.length === 0){
+      this.showNoActiveTasksMessage = true;
+      this.showNoCompleteMessage = false;
+    }else if(status === 'Complete' && this.filteredTodos.length === 0){
+      this.showNoCompleteMessage = true;
+      this.showNoActiveTasksMessage = false;
+    }else{
+      this.showNoCompleteMessage = false;
+      this.showNoActiveTasksMessage = false;
+    }
   }
 
   filterByName(name: string) {

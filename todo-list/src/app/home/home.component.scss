@@ -16,6 +16,11 @@
   .mat-icon {
     color: white;
   }
+
+  .mat-menu-panel {
+    min-width: 433px !important;
+    max-width: 433px !important;
+  }
 }
 
 .todo-home {
@@ -68,12 +73,34 @@
   background-color: #cca152;
 }
 
-.completed-task{
+.completed-task {
   color: #cca152;
   font-weight: 800;
 }
 
-.complete-task{
+.complete-task {
   text-decoration: line-through;
   font-weight: bold;
+}
+
+.filter-by {
+  width: 50%;
+  max-height: 52px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-transform: capitalize;
+}
+
+.no-tasks-message{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 8px;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-family: "Pixel Bit", sans-serif;
 }

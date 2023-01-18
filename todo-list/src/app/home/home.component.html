@@ -18,10 +18,13 @@
       />
     </mat-form-field>
 
-    <button mat-button [matMenuTriggerFor]="mainMenu">Filter</button>
+    <button class="filter-by" mat-button [matMenuTriggerFor]="mainMenu">
+      filter by
+      <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+    </button>
     <mat-menu #mainMenu="matMenu">
-      <button mat-menu-item (click)="filterBy('active')">Active</button>
-      <button mat-menu-item (click)="filterBy('complete')">Complete</button>
+      <button mat-menu-item (click)="filterBy('Active')">Active</button>
+      <button mat-menu-item (click)="filterBy('Complete')">Complete</button>
       <button mat-menu-item [matMenuTriggerFor]="nameSubmenu">Name</button>
     </mat-menu>
 
@@ -53,6 +56,9 @@
       </button>
     </div>
   </div>
+  <div *ngIf="showNoActiveTasksMessage" class="no-tasks-message">
+    no hay tareas activas
+  </div>
 
   <div class="button-line"></div>
   <div>
@@ -76,6 +82,9 @@
           <mat-icon>close</mat-icon>
         </button>
       </div>
+    </div>
+    <div *ngIf="showNoCompleteMessage" class="no-tasks-message">
+      no hay tareas completadas
     </div>
   </div>
 </div>
